@@ -8,20 +8,38 @@ namespace Sweepstakes
 {
     class Sweepstakes
     {
-        Sweepstakes(string name)
+        Dictionary<int, Contestant> contestants = new Dictionary<int, Contestant>();
+        Random rnd = new Random();
+        public int contestantCount = 0;
+
+        public Sweepstakes(string name)
         {
 
         }
-        void RegisterContestant(Contestant contestant)
+        public void RegisterContestant(Contestant contestant)
         {
+            contestant.firstName = UserInterface.GetContestantFirstName();
+            contestant.lastName = UserInterface.GetContestantLastName();
+            contestant.email = UserInterface.GetContestantEmail();
+            contestant.registrationNumber = contestantCount;
+            
+            contestants.Add(contestant.registrationNumber, contestant);
+            contestantCount++;
 
         }
 	    string PickWinner()
         {
+            int winningNumber = rnd.Next(0, contestantCount-1);
+            Contestant winner = contestants[winningNumber];
+
+            return winner.firstName + winner.lastName + winner.email;
+
 
         }
-	    void PrintContestantInfo(Contestant contestant)
+	    public void PrintContestantInfo(Contestant winner)
         {
+
+            Console.WriteLine("The winning contestant is " + winner.firstName + " " + winner.lastName + " " + winner.email);
 
         }
 
