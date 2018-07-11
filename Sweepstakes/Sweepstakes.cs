@@ -11,9 +11,12 @@ namespace Sweepstakes
         Dictionary<int, Contestant> contestants = new Dictionary<int, Contestant>();
         Random rnd = new Random();
         public int contestantCount = 0;
+        public string sweepstakesName;
 
-        public Sweepstakes(string name)
+        public Sweepstakes(string sweepstakesName)
         {
+            this.sweepstakesName = sweepstakesName;
+            contestantCount = 0;
 
         }
         public void RegisterContestant(Contestant contestant)
