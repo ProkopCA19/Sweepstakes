@@ -30,7 +30,7 @@ namespace Sweepstakes
             contestantCount++;
 
         }
-	    string PickWinner()
+	    public string PickWinner()
         {
             int winningNumber = rnd.Next(0, contestantCount-1);
             Contestant winner = contestants[winningNumber];
@@ -39,10 +39,10 @@ namespace Sweepstakes
 
 
         }
-	    public void PrintContestantInfo(Contestant winner)
+	    public void PrintContestantInfo(Contestant contestant)
         {
 
-            Console.WriteLine("The winning contestant is " + winner.firstName + " " + winner.lastName + " " + winner.email);
+            Console.WriteLine("Contestant information:" + contestant.firstName + " " + contestant.lastName + " " + contestant.email + "" + contestant.registrationNumber);
 
         }
 

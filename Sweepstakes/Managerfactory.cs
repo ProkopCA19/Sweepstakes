@@ -13,13 +13,15 @@ namespace Sweepstakes
         public ISweepstakesManager GetManager()
         {
             Console.WriteLine("Would you like to use a stack or a queue manager?");
-            string manager = Console.ReadLine();
-            switch (manager.ToLower())
+            string manager = Console.ReadLine().ToLower();
+            switch (manager)
             {
                 case "stack":
+                    Console.WriteLine("You chose to use a stack manager");
                     return new SweepstakesStackManager();
                     
                 case "queue":
+                    Console.WriteLine("You chose to use a queue manager");
                     return new SweepstakesQueueManager();
                     
                 default:

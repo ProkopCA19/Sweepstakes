@@ -10,16 +10,12 @@ namespace Sweepstakes
     {
         static void Main(string[] args)
         {
-            Sweepstakes s = new Sweepstakes("pack");
-            Contestant c = new Contestant();
-            Contestant a = new Contestant();
-            Contestant b = new Contestant();
+            MarketingFirm newFirm = new MarketingFirm();
+            newFirm.GetSweepstakesName();
+            newFirm.SelectManager();
+            newFirm.CreateSweepstakes();
+            newFirm.GetSweepstakes();
 
-            s.RegisterContestant(a);
-            s.RegisterContestant(b);
-            s.RegisterContestant(c);
-            s.PrintContestantInfo(c);
-            Console.ReadLine();
 
         }
     }
