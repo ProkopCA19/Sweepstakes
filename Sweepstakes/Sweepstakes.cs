@@ -28,7 +28,7 @@ namespace Sweepstakes
             
             contestants.Add(contestant.registrationNumber, contestant);
             contestantCount++;
-
+           
         }
 	    public string PickWinner()
         {

@@ -9,61 +9,61 @@ namespace Sweepstakes
     class MarketingFirm
     {
         ISweepstakesManager manager;
-        static string sweepstakesName;
-        Sweepstakes newSweepstakes = new Sweepstakes(sweepstakesName);
+     
 
+        public MarketingFirm()
+        {
+        }
 
 
         public ISweepstakesManager SelectManager()
         {
             Managerfactory mfactory = new Managerfactory();
-
             manager = mfactory.GetManager();
             return manager;
         }
 
 
-        public string GetSweepstakesName()
+        public void CreateSweepstakes(Sweepstakes sweepstakes)
         {
-            Console.WriteLine("What would you like to name your sweepstakes?");
-            sweepstakesName = Console.ReadLine();
-            return sweepstakesName;
+            manager.InsertSweepstakes(sweepstakes);
         }
 
 
-        public void CreateSweepstakes()
+        public Sweepstakes GetSweepstakes()
         {
-            manager.InsertSweepstakes(newSweepstakes);
+           return manager.GetSweepStakes();
+            
         }
 
 
-        public void GetSweepstakes()
+        public void MakeSweepstakes()
         {
-            manager.GetSweepStakes();
+            string sweepstakesName = UserInterface.GetNameofSweepstakes();
+            Sweepstakes newSweep = new Sweepstakes(sweepstakesName);
+            CreateSweepstakes(newSweep);
         }
 
 
-        public Sweepstakes GenerateContestants(Sweepstakes newSweepstakes)
-        {
-            int numOfContestants;
-            Console.WriteLine("how many contestants are in your sweepstakes?");
-            numOfContestants = int.Parse(Console.ReadLine());
 
-            for( int i = 0; i < numOfContestants; i++)
+
+
+        public void DoSweepstakes()
+        {
+            Sweepstakes newSweepstakes = GetSweepstakes();
+            int newContestants = UserInterface.GetNumOfContestants(newSweepstakes);
+            for (int i = 0; i < newContestants; i++)
             {
-                Contestant contestant = new Contestant();
-                newSweepstakes.RegisterContestant(contestant);
+                Contestant newContestant = new Contestant();
+                newSweepstakes.RegisterContestant(newContestant);
             }
-            return newSweepstakes;
-        }
-
-        public void PickWinner()
-        {
             newSweepstakes.PickWinner();
+            Console.WriteLine("The winner is " + newSweepstakes.PickWinner());
+            
         }
-
 
     }
 
+   
 
 }

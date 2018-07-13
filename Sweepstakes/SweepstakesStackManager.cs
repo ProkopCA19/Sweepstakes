@@ -10,7 +10,15 @@ namespace Sweepstakes
     {
         Stack<Sweepstakes> myStack = new Stack<Sweepstakes>();
 
- 
+      
+
+        public SweepstakesStackManager()
+        {
+            myStack = new Stack<Sweepstakes>();
+        }
+
+
+
         public void InsertSweepstakes(Sweepstakes sweepstakes)
         {
             myStack.Push(sweepstakes);

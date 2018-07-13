@@ -10,12 +10,13 @@ namespace Sweepstakes
     {
         static void Main(string[] args)
         {
-            MarketingFirm newFirm = new MarketingFirm();
-            newFirm.GetSweepstakesName();
-            newFirm.SelectManager();
-            newFirm.CreateSweepstakes();
-            newFirm.GetSweepstakes();
 
+            Managerfactory newFactory = new Managerfactory();
+            MarketingFirm newFirm = new MarketingFirm();
+            newFirm.SelectManager();
+            newFirm.MakeSweepstakes();
+            newFirm.DoSweepstakes();
+            Console.ReadLine();
 
         }
     }
